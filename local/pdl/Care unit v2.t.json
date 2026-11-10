@@ -235,20 +235,22 @@
           "code" : "at0003",
           "text" : "Identifierare",
           "description" : "Identifierare associerad med den identifierade organisationen.\nI denna kontext avses vårdenhetens identifierare.\n",
-          "comment" : "Förekomster för detta dataelement är satt till 1..* för att tillåta att mer än en identifierare kan användas samtidigt. Observera att ID-datatypen innehåller flera underkomponenter för ID-värde, typ, utfärdare och tilldelare."
+          "comment" : "Förekomster för detta dataelement är satt till 1..* för att tillåta att mer än en identifierare kan användas samtidigt. Observera att ID-datatypen innehåller flera underkomponenter för ID-värde, typ, utfärdare och tilldelare. Om vårdenheten har ett HSA-id MÅSTE detta anges som en av identifierarna. Själva HSA-idt för vårdenheten läggs i referensmodellens attribut DV_IDENTIFIER.id. Om vårdenheten inte har ett HSA-id MÅSTE vårdenheten kunna identifieras med en annan unik beständig identifierare."
         },
         "at0004.1" : {
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0004",
           "text" : "Roll",
-          "description" : "Den roll eller kapacitet i vilken organisationen bidrar till vårdpersonens hälsa eller sociala vård.\nI denna kontext anger rollen att organisationen är av typ vårdenhet."
+          "description" : "Organisationens relation till eller roll gentemot vårdtagaren.\nI denna kontext anger rollen att organisationen är av typ vårdenhet.",
+          "comment" : "Exempelvis onkolog, palliativ hemsjukvård eller informell stödorganisation."
+
         },
         "at0001.1" : {
           "@type" : "ARCHETYPE_TERM",
           "code" : "at0001",
           "text" : "Namn",
           "description" : "Namnet som en organisation är känd för.\nI denna kontext avses vårdenhetens namn.",
-          "comment" : "Exempelvis: 'Strömsbro hälsocentral', 'Vårdcentralen Blomman', 'Kirurgiska kliniken'."
+          "comment" : "Exempelvis 'Strömsbro hälsocentral', 'Vårdcentralen Blomman', 'Kirurgiska kliniken'."
         }
       }
     },
@@ -543,27 +545,28 @@
             "code" : "at0003.1",
             "text" : "Identifierare",
             "description" : "Identifierare associerad med den identifierade organisationen.\nI denna kontext avses vårdgivarens identifierare.",
-            "comment" : "Förekomster (Occurrences) för detta dataelement är satt till 1..* för att tillåta att mer än en identifierare kan användas samtidigt. Observera att ID-datatypen innehåller flera underkomponenter för ID-värde, typ, utfärdare och tilldelare."
+            "comment" : "Förekomsten av identifierare är satt till 1..*, vilket innebär att mer en typ av identifierare kan användas. Observera att det finns möjlighet att använda underliggande id-komponenter som typ, utfärdare och tillståndsgivare. Om vårdgivaren har ett HSA-id eller annan relevant identifierare BÖR detta anges som ytterligare identifierare utöver det obligatoriska organisationsnumret."
           },
           "at0004.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0004",
             "text" : "Roll",
-            "description" : "Den roll eller kapacitet i vilken organisationen bidrar till vårdpersonens hälsa eller sociala vård. \nI denna kontext anger rollen att organisationen är av typ vårdgivare."
+            "description" : "Organisationens relation till eller roll gentemot vårdtagaren.\nI denna kontext anger rollen att organisationen är av typ vårdgivare.",
+          "comment" : "Exempelvis onkolog, palliativ hemsjukvård eller informell stödorganisation."
           },
           "at0001.1" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0001",
             "text" : "Namn",
             "description" : "Namnet som en organisation är känd för.\nI denna kontext avses vårdgivarens namn.",
-            "comment" : "Exempelvis: 'Region Östergötland'; 'Capio' eller 'Praktikertjänst'."
+            "comment" : "Exempelvis 'Region Östergötland', 'Capio' eller 'Praktikertjänst'."
           },
           "at0003.2" : {
             "@type" : "ARCHETYPE_TERM",
             "code" : "at0003.2",
             "text" : "Organisationsnummer",
             "description" : "Identifierare associerad med den identifierade organisationen.\nI denna kontext avses vårdgivarens identifierare.",
-            "comment" : "Förekomster (Occurrences) för detta dataelement är satt till 1..* för att tillåta att mer än en identifierare kan användas samtidigt. Observera att ID-datatypen innehåller flera underkomponenter för ID-värde, typ, utfärdare och tilldelare."
+            "comment" : "Förekomsten av identifierare är satt till 1..*, vilket innebär att mer en typ av identifierare kan användas. Observera att det finns möjlighet att använda underliggande id-komponenter som typ, utfärdare och tillståndsgivare. Organisationsnummer MÅSTE anges som en av vårdgivarens identifierare i enlighet med Implementationsguide för HSA-id och Organisationsnummer. Själva organisationsnumret läggs då vid användning i fältet DV_IDENTIFIER.id."
           }
         }
       },
